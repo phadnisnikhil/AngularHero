@@ -1,0 +1,71 @@
+<div style class="--bright-blue">
+ <h2>My first app after long time</h2>
+ <div>
+
+    <ul *ngFor="let student of students">
+        <li>Student Id - {{ student.id}}</li>
+        <li>Student Name- {{ student.name}}</li>
+        </ul>
+ </div>
+ <div>
+<h2> API call data:-</h2>
+ <!-- This is for direct API response 
+<div *ngIf="data">
+    <pre>{{ data | json | lowercase }}</pre>
+
+  </div> -->
+
+<!-- this is for IP API response <div *ngFor="let key of objectKeys(data)">
+  <h3>{{ key | titlecase }}</h3>
+  <p>{{ data[key] }}</p> </div>-->
+
+  
+ </div>
+</div>
+<div *ngFor="let rocket of data">
+  <div class="rocket">
+    <h2>{{ rocket.name }}</h2>
+    <p><strong>Type:</strong> {{ rocket.type }}</p>
+    <p><strong>Active:</strong> {{ rocket.active ? 'Yes' : 'No' }}</p>
+    <p><strong>First flight:</strong> {{ rocket.first_flight }}</p>
+    <p><strong>Country:</strong> {{ rocket.country }}</p>
+    <p><strong>Cost per launch:</strong> ${{ rocket.cost_per_launch | number }}</p>
+    <p><strong>Description:</strong> {{ rocket.description }}</p>
+
+    <div class="details">
+      <h3>First Stage</h3>
+      <ul>
+        <li><strong>Thrust (sea level):</strong> {{ rocket.first_stage.thrust_sea_level.kN }} kN</li>
+        <li><strong>Reusable:</strong> {{ rocket.first_stage.reusable ? 'Yes' : 'No' }}</li>
+        <li><strong>Burn time:</strong> {{ rocket.first_stage.burn_time_sec }} sec</li>
+      </ul>
+
+      <h3>Second Stage</h3>
+      <ul>
+        <li><strong>Thrust:</strong> {{ rocket.second_stage.thrust.kN }} kN</li>
+        <li><strong>Reusable:</strong> {{ rocket.second_stage.reusable ? 'Yes' : 'No' }}</li>
+        <li><strong>Burn time:</strong> {{ rocket.second_stage.burn_time_sec }} sec</li>
+      </ul>
+    </div>
+
+    <div class="images">
+      <h3>Images</h3>
+      <ul>
+        <li *ngFor="let image of rocket.flickr_images">
+          <img [src]="image" alt="{{ rocket.name }}" width="200"/>
+        </li>
+      </ul>
+    </div>
+
+    <div class="payload">
+      <h3>Payload Weights</h3>
+      <ul>
+        <li *ngFor="let payload of rocket.payload_weights">
+          <p>{{ payload.name }}: {{ payload.kg }} kg ({{ payload.lb }} lb)</p>
+        </li>
+      </ul>
+    </div>
+
+    <a [href]="rocket.wikipedia" target="_blank">More Info</a>
+  </div>
+</div>
