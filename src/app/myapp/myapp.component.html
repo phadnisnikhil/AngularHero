@@ -8,6 +8,8 @@
         </ul>
  </div>
  <div>
+  <h2>Hello {{ firstName }}!</h2>
+  <input type="text" [(ngModel)]="firstName" />
 <h2> API call data for </h2>
  <!-- This is for direct API response 
 <div *ngIf="data">
@@ -51,7 +53,7 @@
     <div class="images">
       <h3>Images</h3>
       <ul>
-        <li *ngFor="let image of rocket.flickr_images">
+        <li *ngFor="let image of rocket.flickr_image">
           <img [src]="image" alt="{{ rocket.name }}" width="200"/>
         </li>
       </ul>
@@ -60,7 +62,7 @@
     <div class="payload">
       <h3>Payload Weights</h3>
       <ul>
-        <li *ngFor="let payload of rocket.payload_weights">
+        <li *ngFor="let payload of rocket.payload_weight">
           <p>{{ payload.name }}: {{ payload.kg }} kg ({{ payload.lb }} lb)</p>
         </li>
       </ul>

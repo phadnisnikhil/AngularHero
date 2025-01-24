@@ -1,17 +1,20 @@
-import { Component, OnInit } from '@angular/core';
+import { ChangeDetectionStrategy, Component, OnInit } from '@angular/core';
 import { StudentService } from '../../services/student.service';
 import { ApiServeService } from '../../services/api-serve.service';
+
 
 @Component({
   selector: 'app-myapp',
   templateUrl: './myapp.component.html',
-  styleUrl: './myapp.component.css'
+  styleUrl: './myapp.component.css',
+  changeDetection: ChangeDetectionStrategy.OnPush
 })
 
 export class MyappComponent implements OnInit{
 
   title = 'AngularHero';
   pipetest ='nikhil';
+  firstName = 'Nikhil';
   public students:any[]=[];
   data:any;
   objectKeys = Object.keys;
